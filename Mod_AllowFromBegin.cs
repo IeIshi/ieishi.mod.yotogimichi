@@ -40,15 +40,15 @@ namespace ieishi.mod.yotogimichi
         {
             Logging.Log("Enable all Skills, Positions and Clothes");
 
-            for (int i = 0; i < __instance.GIRL.SAVE_DATA.DATAS_SKILL.Length; i++)
-            {
-                __instance.GIRL.SAVE_DATA.DATAS_SKILL[i] = true;
-            }
+            //for (int i = 0; i < __instance.GIRL.SAVE_DATA.DATAS_SKILL.Length; i++)
+            //{
+            //    __instance.GIRL.SAVE_DATA.DATAS_SKILL[i] = true;
+            //}
 
-            for (int i = 0; i < __instance.GIRL.SAVE_DATA.DATAS_TAII.Length; i++)
-            {
-                __instance.GIRL.SAVE_DATA.DATAS_TAII[i] = true;
-            }
+            //for (int i = 0; i < __instance.GIRL.SAVE_DATA.DATAS_TAII.Length; i++)
+            //{
+            //    __instance.GIRL.SAVE_DATA.DATAS_TAII[i] = true;
+            //}
 
 
             //clothes
@@ -98,7 +98,7 @@ namespace ieishi.mod.yotogimichi
             string[] parts = { "pants", "bra", "skirt", "clothes", "hair_acc", "hair", "eye", "clothes_acc" };
             foreach (var part in parts)
             {
-                Logging.Log(part);
+                //Logging.Log(part);
                 int num = 0;
                 for (int k = 0; k < 100; k++)
                 {
