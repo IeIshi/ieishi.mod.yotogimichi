@@ -13,7 +13,7 @@ namespace ieishi.mod.yotogimichi
 
         public static void Postfix(TextureControl __instance, string part)
         {
-            if (!Plugin.Configuration.UndressUnderwareInPublic)
+            if (!Plugin.Configuration.UndressUnderwearInPublic)
             {
                 return;
             }

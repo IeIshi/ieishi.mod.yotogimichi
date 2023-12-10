@@ -13,7 +13,7 @@ namespace ieishi.mod.yotogimichi
         private ConfigEntry<bool> _configDOFFix;
         private ConfigEntry<float> _configMaxZoom;
         private ConfigEntry<bool> _configShowLovePointsInConsole;
-        private ConfigEntry<bool> _configUndressUnderwareInPublic;
+        private ConfigEntry<bool> _configUndressUnderwearInPublic;
         private ConfigEntry<bool> _configCumBeforeConfession;
         private ConfigEntry<bool> _configRoundBellyWithoutPenetration;
         private ConfigEntry<bool> _configFromBeginning_AllWaypoints;
@@ -45,10 +45,10 @@ namespace ieishi.mod.yotogimichi
                 false,
                 "Shows lovepoints in console/logfile after each talk");
 
-            _configUndressUnderwareInPublic = file.Bind("General",      // The section under which the option is shown
-                 "UndressUnderwareInPublic",  // The key of the configuration option in the configuration file
-                 false, // The default value
-                 "Enable undress button for underware"); // Description of the option 
+            _configUndressUnderwearInPublic = file.Bind("General",
+                 "UndressUnderwearInPublic",
+                 false,
+                 "Enable undress button for underwear");
 
             _configCumBeforeConfession = file.Bind("General",
                 "CumBeforeConfession",
@@ -110,7 +110,7 @@ namespace ieishi.mod.yotogimichi
         public bool DOF_Fix => _configDOFFix.Value;
         public float MaxZoom => _configMaxZoom.Value;
         public bool ShowLovePointsInConsole => _configShowLovePointsInConsole.Value;
-        public bool UndressUnderwareInPublic => _configUndressUnderwareInPublic.Value;
+        public bool UndressUnderwearInPublic => _configUndressUnderwearInPublic.Value;
         public bool CumBeforeConfession => _configCumBeforeConfession.Value;
         public bool RoundBellyWithoutPenetration => _configRoundBellyWithoutPenetration.Value;
         public bool FromBeginning_AllWaypoints => _configFromBeginning_AllWaypoints.Value;
