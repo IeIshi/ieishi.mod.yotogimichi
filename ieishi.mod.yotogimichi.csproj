@@ -4,7 +4,7 @@
 		<TargetFramework>net46</TargetFramework>
 		<AssemblyName>ieishi.mod.yotogimichi</AssemblyName>
 		<Description>Mods for Yotogimichi by Ieishi</Description>
-		<Version>1.0.0</Version>
+		<Version>1.1.0</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
@@ -32,6 +32,12 @@
 		<Reference Include="netstandard">
 		  <HintPath>lib\netstandard.dll</HintPath>
 		</Reference>
+		<Reference Include="Unity.Postprocessing.Runtime">
+		  <HintPath>lib\Unity.Postprocessing.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine">
+		  <HintPath>lib\UnityEngine.dll</HintPath>
+		</Reference>
 		<Reference Include="UnityEngine.UI">
 		  <HintPath>lib\UnityEngine.UI.dll</HintPath>
 		</Reference>
@@ -40,4 +46,8 @@
 	<ItemGroup>
 		<Folder Include="obj\Debug\net46\" />
 	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="xcopy &quot;C:\Users\localuser\Documents\Work\VS\ieishi.mod.yotogimichi\bin\Release\net46\ieishi.mod.yotogimichi.dll&quot; &quot;C:\Users\localuser\Desktop\Neuer Ordner\YOTOGIMICHI 3.1.3\BepInEx\plugins\ieishi.mod.yotogimichi.dll&quot; /Y" />
+	</Target>
 </Project>

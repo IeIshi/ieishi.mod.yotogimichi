@@ -24,27 +24,33 @@ namespace ieishi.mod.yotogimichi
         {
             var log = new ManualLogSource(PluginInfo.PLUGIN_NAME); // The source name is shown in BepInEx log
             Logger.Sources.Add(log);
-
-            var varname = variable.Body is MemberExpression ? ((MemberExpression)variable.Body).Member.Name : (((UnaryExpression)variable.Body).Operand as MemberExpression)?.Member.Name;
-            var vartype = variable.Body is MemberExpression ? ((MemberExpression)variable.Body).Type : (((UnaryExpression)variable.Body).Operand as MemberExpression)?.Type;
-            var varvalue = variable.Compile().Invoke();
-
-            var isarray = (varvalue is Array);
-
-            if (isarray)
+            try
             {
-                var i = 0;
-                foreach (var item in varvalue as Array)
+
+                var varname = variable.Body is MemberExpression ? ((MemberExpression)variable.Body).Member.Name : (((UnaryExpression)variable.Body).Operand as MemberExpression)?.Member.Name;
+                var vartype = variable.Body is MemberExpression ? ((MemberExpression)variable.Body).Type : (((UnaryExpression)variable.Body).Operand as MemberExpression)?.Type;
+                var varvalue = variable.Compile().Invoke();
+
+                var isarray = (varvalue is Array);
+
+                if (isarray)
                 {
-                    log.Log(level, varname + "[" + i + "]   (" + item.GetType() + ")    " + item);
-                    i++;
+                    var i = 0;
+                    foreach (var item in varvalue as Array)
+                    {
+                        log.Log(level, varname + "[" + i + "]   (" + item.GetType() + ")    " + item);
+                        i++;
+                    }
+                }
+                else
+                {
+                    log.Log(level, varname + "  (" + vartype + ")   " + varvalue);
                 }
             }
-            else
+            catch (Exception)
             {
-                log.Log(level, varname + "  (" + vartype + ")   " + varvalue);
+                log.Log(level = LogLevel.Error, "error");
             }
-
             Logger.Sources.Remove(log);
         }
     }
