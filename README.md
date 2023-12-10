@@ -17,7 +17,7 @@ change config to your liking (_gamefolder_\BepInEx\config\ieishi.mod.yotogimichi
 
 
 
-## build yourself:
+## How to build yourself:
 Assembly-CSharp.dll is not contained. <br>
-Must used from Game: <br>
+Must be used from the game: <br>
 _gamefolder_\YOTOGIMICHI_Data\Managed\Assembly-CSharp.dll <br>
