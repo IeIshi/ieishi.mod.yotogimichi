@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using HarmonyLib;
 
 namespace ieishi.mod.yotogimichi
@@ -9,8 +10,14 @@ namespace ieishi.mod.yotogimichi
         public const string HarmonyId = "ieishi.mod.yotogmichi";
         public Harmony Harmony { get; } = new Harmony(HarmonyId);
 
+        public static Plugin Instance { get; private set; }
+        public static Configuration Configuration { get; private set; }
+
         private void Awake()
         {
+            Instance = this;
+            Configuration = new Configuration();
+
             // Plugin startup logic
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
 
