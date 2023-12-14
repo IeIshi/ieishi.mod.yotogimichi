@@ -588,7 +588,8 @@ namespace ieishi.mod.yotogimichi
 
 
     /// <summary>
-    /// 
+    /// Allow multiple times H
+    /// Change max zoom
     /// </summary>
     [HarmonyPatch(typeof(SceneControl), nameof(SceneControl.mainProcess))]
     public class SceneControl_mainProcess
@@ -596,49 +597,6 @@ namespace ieishi.mod.yotogimichi
 
         public static bool Prefix(SceneControl __instance)
         {
-            if (Plugin.Configuration.DOF_Fix)
-            {
-                try
-                {
-                    GameObject camera = GameObject.Find("Main Camera");
-                    if (camera == null)
-                    {
-                        Logging.Log("no Main Camera");
-                    }
-                    else
-                    {
-                        float distance = Vector3.Distance(__instance.GIRL_OBJ.transform.position, camera.transform.position);
-
-                        PostProcessLayer postProcessLayer = camera.GetComponent<PostProcessLayer>();
-                        if (postProcessLayer == null)
-                        {
-                            Logging.Log("no PostProcessLayer");
-                        }
-                        else
-                        {
-                            List<PostProcessVolume> volList = new();
-                            PostProcessManager.instance.GetActiveVolumes(postProcessLayer, volList, true, true);
-
-                            foreach (PostProcessVolume vol in volList)
-                            {
-                                PostProcessProfile ppp = vol.profile;
-                                if (ppp)
-                                {
-                                    if (ppp.TryGetSettings<DepthOfField>(out DepthOfField dph))
-                                    {
-                                        dph.focusDistance.value = distance;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    Logging.Log(e.Message);
-                }
-            }
-
             if (Plugin.Configuration.FromBeginning_MultipleH)
             {
                 __instance.GIRL.GAME_CONTROL.H_ONEGAI_OK_IS = true;

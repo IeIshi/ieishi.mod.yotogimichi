@@ -11,6 +11,7 @@ namespace ieishi.mod.yotogimichi
     public class Configuration
     {
         private ConfigEntry<bool> _configDOFFix;
+        private ConfigEntry<bool> _configUnderwareEcchiFix;
         private ConfigEntry<float> _configMaxZoom;
         private ConfigEntry<bool> _configShowLovePointsInConsole;
         private ConfigEntry<bool> _configUndressUnderwearInPublic;
@@ -34,6 +35,11 @@ namespace ieishi.mod.yotogimichi
                 "DOFFix",
                 true,
                 "Fixes wrong DOF Distance");
+
+            _configUnderwareEcchiFix = file.Bind("General",
+                "UnderwareEcchiFix",
+                true,
+                "Fixes pantie or bra is ecchi, happens when underware 'must match'");
 
             _configMaxZoom = file.Bind("General",
                 "MaxZoom",
@@ -108,6 +114,7 @@ namespace ieishi.mod.yotogimichi
 
 
         public bool DOF_Fix => _configDOFFix.Value;
+        public bool UnderwareEcchiFix => _configUnderwareEcchiFix.Value;
         public float MaxZoom => _configMaxZoom.Value;
         public bool ShowLovePointsInConsole => _configShowLovePointsInConsole.Value;
         public bool UndressUnderwearInPublic => _configUndressUnderwearInPublic.Value;
