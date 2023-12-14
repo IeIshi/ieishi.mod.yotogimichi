@@ -2,7 +2,8 @@
 
 ## Functions:
 ### General:
-DOF Fix, change Zoom in H, show lovepoints in console, undress underwear in public, cum before confession, round belly without penetration
+DOF Fix, Fix for: When underware set as matched, 'isEcchi' can be wrong set, <br>
+change Zoom in H, show lovepoints in console, undress underwear in public, cum before confession, round belly without penetration
 
 ### Enable from start:
 all way points, shops, all cloths, work, travel, multiple H per day, show girl stats in notes, all positions, all skills
