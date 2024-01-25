@@ -72,22 +72,29 @@ namespace ieishi.mod.yotogimichi
         {
             if (Plugin.Configuration.UnderwareEcchiFix)
             {
-                if (__instance.OBJ_DRESS[2].GetComponent<DressItem>().DESIGN == "変態")
+                try
                 {
-                    __instance.GIRL.BURA_ANAAKI_IS = true;
-                }
-                else
-                {
-                    __instance.GIRL.BURA_ANAAKI_IS = false;
-                }
+                    if (__instance.OBJ_DRESS[2].GetComponent<DressItem>().DESIGN == "変態")
+                    {
+                        __instance.GIRL.BURA_ANAAKI_IS = true;
+                    }
+                    else
+                    {
+                        __instance.GIRL.BURA_ANAAKI_IS = false;
+                    }
 
-                if (__instance.OBJ_DRESS[3].GetComponent<DressItem>().DESIGN == "変態")
-                {
-                    __instance.GIRL.PANTU_ANAAKI_IS = true;
+                    if (__instance.OBJ_DRESS[3].GetComponent<DressItem>().DESIGN == "変態")
+                    {
+                        __instance.GIRL.PANTU_ANAAKI_IS = true;
+                    }
+                    else
+                    {
+                        __instance.GIRL.PANTU_ANAAKI_IS = false;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    __instance.GIRL.PANTU_ANAAKI_IS = false;
+                    Logging.Log(e.Message);
                 }
             }
         }
